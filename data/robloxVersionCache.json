@@ -1,0 +1,88 @@
+{
+    "current": {
+        "Windows": {
+            "platform": "Windows",
+            "kind": "current",
+            "version": "version-c5aecda2245e4fae",
+            "clientVersion": "0.738.0.7381397",
+            "bootstrapperVersion": null,
+            "type": "new",
+            "date": "9/9/2026, 10:30:28 PM UTC",
+            "timestamp": 1788993028
+        },
+        "Mac": {
+            "platform": "Mac",
+            "kind": "current",
+            "version": "version-5b15515e80624095",
+            "clientVersion": "0.738.0.7381393",
+            "bootstrapperVersion": null,
+            "type": "revert",
+            "date": "9/9/2026, 6:19:02 PM UTC",
+            "timestamp": 1788977942
+        },
+        "Android": {
+            "platform": "Android",
+            "kind": "current",
+            "version": "2.738.1397",
+            "clientVersion": "2.738.1397",
+            "bootstrapperVersion": null,
+            "type": null,
+            "date": "9/10/2026, 10:47:32 PM UTC",
+            "timestamp": 1789080452
+        },
+        "iOS": {
+            "platform": "iOS",
+            "kind": "current",
+            "version": "2.738.1390",
+            "clientVersion": "2.738.1390",
+            "bootstrapperVersion": null,
+            "type": null,
+            "date": "9/10/2026, 5:31:02 PM UTC",
+            "timestamp": 1789061462
+        }
+    },
+    "future": {
+        "Windows": {
+            "platform": "Windows",
+            "kind": "future",
+            "version": "version-c5aecda2245e4fae",
+            "clientVersion": "0.738.0.7381397",
+            "bootstrapperVersion": "0, 738, 0, 7381397",
+            "type": null,
+            "date": "9/9/2026, 2:07:02 PM UTC",
+            "timestamp": 1788962822
+        },
+        "Mac": {
+            "platform": "Mac",
+            "kind": "future",
+            "version": "version-5b15515e80624095",
+            "clientVersion": "0.738.0.7381393",
+            "bootstrapperVersion": "0,738,0,7381393",
+            "type": null,
+            "date": "9/8/2026, 2:47:43 PM UTC",
+            "timestamp": 1788878863
+        }
+    },
+    "past": {
+        "Windows": {
+            "platform": "Windows",
+            "kind": "past",
+            "version": "version-e7d81637d42c4b23",
+            "clientVersion": "0.737.0.7371584",
+            "bootstrapperVersion": null,
+            "type": "new",
+            "date": "9/2/2026, 10:38:37 PM UTC",
+            "timestamp": 1788388717
+        },
+        "Mac": {
+            "platform": "Mac",
+            "kind": "past",
+            "version": "version-2a3a7efa1a934799",
+            "clientVersion": "0.737.0.7371584",
+            "bootstrapperVersion": null,
+            "type": "revert",
+            "date": "9/9/2026, 2:16:05 AM UTC",
+            "timestamp": 1788920165
+        }
+    }
+}
