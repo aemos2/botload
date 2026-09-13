@@ -1,37 +1,27 @@
 const { EmbedBuilder } = require("discord.js");
-const { fetchExecutorByName, buildExecutorEmbed } = require("./executor");
 
 const URL_REGEX = /https?:\/\/[^\s<>()]+/i;
 const BYPASS_API = "https://novahub-jj73.onrender.com/api/bypass";
 
 module.exports = {
-    name: "db",
-    aliases: ["dbs", "dbsc", "dltbypass"],
-    description: "Delta key bypass, or Delta executor info if no URL is given.",
+    name: "dltbypass",
+    aliases: [],
+    description: "Delta key bypass. Usage: .dltbypass <url>",
 
     async execute(message, args) {
         const joined = args.join(" ").trim();
         const match = joined ? URL_REGEX.exec(joined) : null;
 
-        // No URL → show Delta executor info
         if (!match) {
-            try {
-                const data = await fetchExecutorByName("Delta");
-                if (!data) {
-                    return message.reply(
-                        "Provide a validation URL for bypass, or wait until Delta is listed.\nExample: `.delta https://gateway.platoboost.com/a/...`"
-                    );
-                }
-                const { embed, components } = buildExecutorEmbed(data);
-                return message.reply({ embeds: [embed], components });
-            } catch (err) {
-                console.error("[Delta] Info lookup failed:", err.message);
-                return message.reply("Failed to fetch Delta info.");
-            }
+            return message.channel.send(
+                "put your Delta website link to bypass.\nExample: `.dltbypass https://gateway.platoboost.com/a/...`"
+            );
         }
 
         const targetUrl = match[0];
-        const progress = await message.reply("Connecting to the bypass service...");
+        const progress = await message.channel.send(
+            "bypassing..."
+        );
 
         try {
             const res = await fetch(BYPASS_API, {
@@ -56,14 +46,15 @@ module.exports = {
 
             if (data.success || keyResult) {
                 const embed = new EmbedBuilder()
-                    .setTitle("Bypass Completed")
+                    .setTitle("done.")
                     .setColor(0x2b2d31)
                     .addFields(
                         {
                             name: "Link",
-                            value: targetUrl.length > 100
-                                ? targetUrl.slice(0, 100) + "..."
-                                : targetUrl,
+                            value:
+                                targetUrl.length > 100
+                                    ? targetUrl.slice(0, 100) + "..."
+                                    : targetUrl,
                             inline: false
                         },
                         {
@@ -90,7 +81,7 @@ module.exports = {
 
             return progress.edit({ content: null, embeds: [embed] });
         } catch (err) {
-            console.error("[Delta] Bypass failed:", err.message);
+            console.error("[Bypass] Failed:", err.message);
 
             const isTimeout =
                 err.name === "TimeoutError" ||
